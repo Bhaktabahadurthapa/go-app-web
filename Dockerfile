@@ -12,7 +12,7 @@ RUN go build -o main .
 
 # Used of Distroless Image : Reducing the Image size and secure 
 
-FROM gcr.io/Distroless/base
+FROM gcr.io/distroless/base
 
 COPY --from=base /app/main .
 
