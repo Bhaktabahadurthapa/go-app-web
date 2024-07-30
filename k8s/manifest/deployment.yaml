@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: go-app
-        image: lishan2023/go-app:v1
+        image: lishan2023/go-app:v4
         ports:
         - containerPort: 8080
