@@ -4,7 +4,8 @@ WORKDIR /app
 COPY go.mod .
 RUN go mod download
 COPY . .
-RUN go build -o main .
+# Ensure the binary is built for linux/amd64
+RUN GOARCH=amd64 GOOS=linux go build -o main .
 
 # Stage 2: Copy the binary into a smaller image
 FROM gcr.io/distroless/base:latest
