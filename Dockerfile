@@ -1,4 +1,3 @@
-# Corrected Dockerfile
 # Stage 1: Build Stage
 FROM golang:1.22.5 AS builder
 
@@ -10,7 +9,8 @@ RUN go mod download
 
 COPY . .
 
-RUN go build -o main .
+# Ensure binary is built for the correct architecture
+RUN GOARCH=amd64 GOOS=linux go build -o main .
 
 # Stage 2: Final Stage
 FROM gcr.io/distroless/base
